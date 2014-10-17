@@ -1,0 +1,43 @@
+{
+  "name": "BBAir",
+  "version": "1.0.0",
+  "description": "phpBB Style",
+  "main": "README.md",
+  "author": "John Mothershed",
+  "license": "GPLv3 Affero",
+  "homepage": "https://github.com/wiseguy12851/BBAir",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wiseguy12851/BBAir.git"
+  },
+  "keywords": [
+    "phpBB",
+    "wiseguy12851",
+    "theme"
+  ],
+  "bugs": {
+    "url": "https://github.com/wiseguy12851/issues"
+  },
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "del": "^0.1.3",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-concat": "^2.4.1",
+    "gulp-concat-css": "^1.0.0",
+    "gulp-gzip": "0.0.8",
+    "gulp-jshint": "^1.8.5",
+    "gulp-minify-css": "^0.3.10",
+    "gulp-notify": "^2.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-tar": "^1.1.0",
+    "gulp-typescript": "^2.0.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-unzip": "^0.1.2",
+    "gulp-zip": "^2.0.2"
+  }
+}

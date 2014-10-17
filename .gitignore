@@ -1,0 +1,15 @@
+# Logs
+*.log
+
+# Node and Bower
+node_modules/
+bower_components/
+
+# Cache directories
+.sass-cache/
+
+# Build related directories
+build/
+
+#Annoying Microsoft Files
+Thumbs.db

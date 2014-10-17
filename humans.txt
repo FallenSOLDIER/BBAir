@@ -1,0 +1,35 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    John Mothershed -- Owner
+
+# THANKS
+    
+
+# TECHNOLOGY COLOPHON
+
+# Software and Templates
+	GIT
+	Bower
+	Gulp
+
+# Languages
+    HTML5
+	CSS3
+	Javascript/Ecmascript 5
+
+# Language Subset
+	SASS
+	Typescript
+
+# Frameworks
+    jQuery
+    Bootstrap
+
+# Testing
+	Modernizr
+
+# Other
+	FontAwesome

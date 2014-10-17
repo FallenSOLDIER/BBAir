@@ -1,0 +1,38 @@
+{
+  "name": "BBAir",
+  "version": "1.0.0",
+  "description": "phpBB Air Theme",
+  "main": "README.md",
+  "license": "GPLv3 Affero",
+  "homepage": "https://github.com/wiseguy12851/BBair",
+  "private": true,
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "keywords": [
+    "phpBB",
+    "wiseguy12851",
+    "theme"
+  ],
+  "authors": [
+    "John Mothershed"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies":
+  {
+    "fontawesome": "~4.2.0",
+    "modernizr": "~2.8.3",
+    "bootstrap-sass-official": "v3.2.0+2"
+  }
+}

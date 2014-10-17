@@ -1,0 +1,26 @@
+<div id="chars_view" style="display: none;">
+	<dl style="clear: left;">
+		<dt>
+			<label>{L_CHARS_HELP}<br /><br /><br /><span id="zoom" style="margin-left: 25%; font-size: 6em;">&nbsp;</span></label>
+		</dt>
+		<dd>
+			<script type="text/javascript">
+			// <![CDATA[
+			function change_chars()
+			{
+				dE('chars_view');
+				e = document.getElementById('chars_view');
+			}
+			// ]]>
+			</script>
+			
+			<table cellspacing="1" cellpadding="0" border="0">
+				<tr>
+				<!-- BEGIN td -->
+					<!-- IF td.S_ROW_COUNT != 0 -->{td.ADD_ROW}<!-- ENDIF --><td style="width: 21px; height: 21px; text-align:center; background-color: #DCE6E9;"><a href="#" onclick="insert_text('{td.ISO}'); return false;" onmouseover="zoom('{td.ISO}');" title="{td.LANGNAME}">{td.ISO}</a></td>
+				<!-- END td -->
+				</tr>
+			</table>
+		</dd>
+	</dl>
+</div>
