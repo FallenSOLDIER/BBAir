@@ -1,6 +1,6 @@
-## TestPhaserGame
+## BBAir
 
-Testing out the Phaser API
+A phpBB style
 
 ### About this project
 
