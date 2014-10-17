@@ -182,7 +182,8 @@ var config =
         styles: 'styles',
         scripts: 'scripts',
 
-        template: "template",
+        template: "template/BBAir",
+        templateRoot: "template",
         prep: "prep",
         archives: "archives"
     },
@@ -308,6 +309,12 @@ function getDirBuildPrep(prefix, ext)
 function getDirBuildTemplate(prefix, ext)
 {
     var path = makePath([config.buildFolder, config.buildFolderLayout.template]);
+    return getDir(path, prefix, ext);
+}
+
+function getDirBuildTemplateRoot(prefix, ext)
+{
+    var path = makePath([config.buildFolder, config.buildFolderLayout.templateRoot]);
     return getDir(path, prefix, ext);
 }
 
@@ -650,7 +657,7 @@ gulp.task('template',
 
 gulp.task('template-zip-archive', ['template'], function()
 {
-    var from = getDirBuildTemplate();
+    var from = getDirBuildTemplateRoot();
     var to = getDirBuildArchives(true);
 
     return gulp.src(from)
@@ -660,7 +667,7 @@ gulp.task('template-zip-archive', ['template'], function()
 
 gulp.task('template-tar-archive', ['template'], function()
 {
-    var from = getDirBuildTemplate();
+    var from = getDirBuildTemplateRoot();
     var to = getDirBuildArchives(true);
 
     return gulp.src(from)
