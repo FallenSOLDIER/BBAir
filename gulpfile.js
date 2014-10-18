@@ -351,7 +351,15 @@ gulp.task('clean', function(cb)
 // Make sure its isntalled first with bower task
 gulp.task('icons', function()
 {
-    var from = suffixPath(makePath([getDirBower(true), 'fontawesome', 'fonts']));
+    var from =
+    [
+        suffixPath(makePath([getDirBower(true), 'fontawesome', 'fonts'])),
+        suffixPath(makePath([getDirBower(true), 
+            'bootstrap-sass-official', 
+            'assets',
+            'fonts',
+            'bootstrap']))
+    ]
     var to = getDirBuildFonts(true);
 
     return gulp.src(from)
@@ -582,10 +590,13 @@ gulp.task('Prep-Template', function()
 // but with phpBB what is that, where is that
 // Im going to assume Top-Level is Our Style Root
 // If not then it can probably be moved by hand
+
+// EDIT: Apparently proBoot3 thinks its best to place the fonts
+// in the theme folder, so why not, Ill place them there istead
 gulp.task('Prep-Fonts', ['icons'], function()
 {
     var from = getDirBuildFonts();
-    var to = makePath([getDirBuildPrep(true), 'fonts']);
+    var to = makePath([getDirBuildPrep(true), 'theme', 'fonts']);
 
     return gulp.src(from)
         .pipe(gulp.dest(to));

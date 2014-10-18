@@ -1,20 +1,19 @@
 <!-- INCLUDE overall_header.html -->
 
 <form id="confirm" action="{S_CONFIRM_ACTION}" method="post">
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
-	<h2>{MESSAGE_TITLE}</h2>
-	<p>{MESSAGE_TEXT}</p>
-	
-	<fieldset class="submit-buttons">
-		{S_HIDDEN_FIELDS}
-		<input type="submit" name="confirm" value="{L_YES}" class="button2" />&nbsp; 
-		<input type="submit" name="cancel" value="{L_NO}" class="button2" />
-	</fieldset>
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{MESSAGE_TITLE}</h3>
+		</div>
+		<div class="panel-body">
+			<p>{MESSAGE_TEXT}</p>
+			<fieldset class="submit-buttons">
+				{S_HIDDEN_FIELDS}
+				<input type="submit" name="cancel" value="{L_NO}" class="btn btn-danger" />
+				<input type="submit" name="confirm" value="{L_YES}" class="btn btn-primary" />
+			</fieldset>
+		</div>
+	</div>
 </form>
 
 <!-- INCLUDE overall_footer.html -->

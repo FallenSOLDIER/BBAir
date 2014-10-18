@@ -1,65 +1,93 @@
 <!-- INCLUDE overall_header.html -->
 
-<p class="{S_CONTENT_FLOW_END}<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->
-<!-- IF S_LTC_ENABLE -->{L_LTC_CURRENT_TIME}<span style="color:{S_LTC_DAY_COLOR}">{L_LTC_CURRENT_DAY}<!-- IF S_LTC_DAY_FORMAT eq 'none'--><!-- ELSE --><!-- IF S_LTC_SEP_FORMAT eq '1' -->{L_LTC_SEP_FORMAT_01}<!-- ELSEIF S_LTC_SEP_FORMAT eq '2' -->{L_LTC_SEP_FORMAT_02}<!-- ELSEIF S_LTC_SEP_FORMAT eq '3' --><sub>{L_LTC_SEP_FORMAT_03}</sub><!-- ELSEIF S_LTC_SEP_FORMAT eq '4' -->{L_LTC_SEP_FORMAT_04}<!-- ENDIF --><!-- ENDIF --></span>
-<span style="color:{S_LTC_DATE_COLOR}">{L_LTC_CURRENT_DATE}{L_LTC_CURRENT_YEAR}<!-- IF S_LTC_CLOCK_FORMAT eq 'none'--><!-- ELSE --><!-- IF S_LTC_SEP_FORMAT eq '1' -->{L_LTC_SEP_FORMAT_01}<!-- ELSEIF S_LTC_SEP_FORMAT eq '2' -->{L_LTC_SEP_FORMAT_02}<!-- ELSEIF S_LTC_SEP_FORMAT eq '3' --><sub>{L_LTC_SEP_FORMAT_03}</sub><!-- ELSEIF S_LTC_SEP_FORMAT eq '4' -->{L_LTC_SEP_FORMAT_04}<!-- ENDIF --><!-- ENDIF --></span>
-<span style="color:{S_LTC_CLOCK_COLOR}">{L_LTC_CURRENT_CLOCK}</span><!-- ELSE -->{CURRENT_TIME}<!-- ENDIF -->
-<!-- ENDIF --></p>
-<!-- IF U_MCP --><p>
-<!-- IF S_LTC_ENABLE -->{L_LTC_CURRENT_TIME}<span style="color:{S_LTC_DAY_COLOR}">{L_LTC_CURRENT_DAY}<!-- IF S_LTC_DAY_FORMAT eq 'none'--><!-- ELSE --><!-- IF S_LTC_SEP_FORMAT eq '1' -->{L_LTC_SEP_FORMAT_01}<!-- ELSEIF S_LTC_SEP_FORMAT eq '2' -->{L_LTC_SEP_FORMAT_02}<!-- ELSEIF S_LTC_SEP_FORMAT eq '3' --><sub>{L_LTC_SEP_FORMAT_03}</sub><!-- ELSEIF S_LTC_SEP_FORMAT eq '4' -->{L_LTC_SEP_FORMAT_04}<!-- ENDIF --><!-- ENDIF --></span>
-<span style="color:{S_LTC_DATE_COLOR}">{L_LTC_CURRENT_DATE}{L_LTC_CURRENT_YEAR}<!-- IF S_LTC_CLOCK_FORMAT eq 'none'--><!-- ELSE --><!-- IF S_LTC_SEP_FORMAT eq '1' -->{L_LTC_SEP_FORMAT_01}<!-- ELSEIF S_LTC_SEP_FORMAT eq '2' -->{L_LTC_SEP_FORMAT_02}<!-- ELSEIF S_LTC_SEP_FORMAT eq '3' --><sub>{L_LTC_SEP_FORMAT_03}</sub><!-- ELSEIF S_LTC_SEP_FORMAT eq '4' -->{L_LTC_SEP_FORMAT_04}<!-- ENDIF --><!-- ENDIF --></span>
-<span style="color:{S_LTC_CLOCK_COLOR}">{L_LTC_CURRENT_CLOCK}</span><!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --> <br />[&nbsp;<a href="{U_MCP}">{L_MCP}</a>&nbsp;]</p><!-- ELSEIF S_USER_LOGGED_IN -->
-<p>
-<!-- IF S_LTC_ENABLE -->{L_LTC_CURRENT_TIME}<span style="color:{S_LTC_DAY_COLOR}">{L_LTC_CURRENT_DAY}<!-- IF S_LTC_DAY_FORMAT eq 'none'--><!-- ELSE --><!-- IF S_LTC_SEP_FORMAT eq '1' -->{L_LTC_SEP_FORMAT_01}<!-- ELSEIF S_LTC_SEP_FORMAT eq '2' -->{L_LTC_SEP_FORMAT_02}<!-- ELSEIF S_LTC_SEP_FORMAT eq '3' --><sub>{L_LTC_SEP_FORMAT_03}</sub><!-- ELSEIF S_LTC_SEP_FORMAT eq '4' -->{L_LTC_SEP_FORMAT_04}<!-- ENDIF --><!-- ENDIF --></span>
-<span style="color:{S_LTC_DATE_COLOR}">{L_LTC_CURRENT_DATE}{L_LTC_CURRENT_YEAR}<!-- IF S_LTC_CLOCK_FORMAT eq 'none'--><!-- ELSE --><!-- IF S_LTC_SEP_FORMAT eq '1' -->{L_LTC_SEP_FORMAT_01}<!-- ELSEIF S_LTC_SEP_FORMAT eq '2' -->{L_LTC_SEP_FORMAT_02}<!-- ELSEIF S_LTC_SEP_FORMAT eq '3' --><sub>{L_LTC_SEP_FORMAT_03}</sub><!-- ELSEIF S_LTC_SEP_FORMAT eq '4' -->{L_LTC_SEP_FORMAT_04}<!-- ENDIF --><!-- ENDIF --></span>
-<span style="color:{S_LTC_CLOCK_COLOR}">{L_LTC_CURRENT_CLOCK}</span><!-- ELSE -->{CURRENT_TIME}<!-- ENDIF -->
-</p><!-- ENDIF -->
-
 <!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
-<ul class="linklist">
-	<!-- IF S_DISPLAY_SEARCH -->
-		<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a><!-- IF S_LOAD_UNREADS --> &bull; <a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a><!-- ENDIF --><!-- IF S_USER_LOGGED_IN --> &bull; <a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a><!-- ENDIF --> &bull; <a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
-	<!-- ENDIF -->
-	<!-- IF not S_IS_BOT and U_MARK_FORUMS --><li class="rightside"><a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a></li><!-- ENDIF -->
-</ul>
+	<ul class="linklist">
+		<!-- IF S_DISPLAY_SEARCH -->
+			<li>
+				<div class="btn-group">
+					<a href="{U_SEARCH_UNANSWERED}" class="btn btn-default btn-sm">{L_SEARCH_UNANSWERED}</a>
+					<!-- IF S_LOAD_UNREADS -->
+						<a href="{U_SEARCH_UNREAD}" class="btn btn-default btn-sm">{L_SEARCH_UNREAD}</a>
+					<!-- ENDIF -->
+					<!-- IF S_USER_LOGGED_IN -->
+						<a href="{U_SEARCH_NEW}" class="btn btn-default btn-sm">{L_SEARCH_NEW}</a>
+					<!-- ENDIF -->
+					<a href="{U_SEARCH_ACTIVE_TOPICS}" class="btn btn-default btn-sm">{L_SEARCH_ACTIVE_TOPICS}</a>
+				</div>
+			</li>
+		<!-- ENDIF -->
+		<!-- IF not S_IS_BOT and U_MARK_FORUMS --><li class="rightside"><a href="{U_MARK_FORUMS}" accesskey="m" class="btn btn-default btn-sm">{L_MARK_FORUMS_READ}</a></li><!-- ENDIF -->
+	</ul>
 <!-- ENDIF -->
 
 <!-- INCLUDE forumlist_body.html -->
 
 <!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
-	<form method="post" action="{S_LOGIN_ACTION}" class="headerspace">
-	<h3><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a><!-- IF S_REGISTER_ENABLED -->&nbsp; &bull; &nbsp;<a href="{U_REGISTER}">{L_REGISTER}</a><!-- ENDIF --></h3>
-		<fieldset class="quick-login">
-			<label for="username">{L_USERNAME}:</label>&nbsp;<input type="text" name="username" id="username" size="10" class="inputbox" title="{L_USERNAME}" />
-			<label for="password">{L_PASSWORD}:</label>&nbsp;<input type="password" name="password" id="password" size="10" class="inputbox" title="{L_PASSWORD}" />
-			<!-- IF S_AUTOLOGIN_ENABLED -->
-				| <label for="autologin">{L_LOG_ME_IN} <input type="checkbox" name="autologin" id="autologin" /></label>
-			<!-- ENDIF -->
-			<input type="submit" name="login" value="{L_LOGIN}" class="button2" />
-			{S_LOGIN_REDIRECT}
-		</fieldset>
-	</form>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">{L_LOGIN_LOGOUT}</h3>
+	</div>	
+	<div class="panel-body">
+		<form method="post" action="{S_LOGIN_ACTION}" class="form-inline">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<input type="text" placeholder="{L_USERNAME}" name="username" id="username" size="10" class="form-control" title="{L_USERNAME}" style="width: 117px;"/>	
+						<input type="password" placeholder="{L_PASSWORD}" name="password" id="password" size="10" class="form-control" title="{L_PASSWORD}" style="width: 117px;"/>
+						<span class="input-group-btn" style="width: 0px;">
+							{S_LOGIN_REDIRECT}
+							<input type="submit" name="login" value="{L_LOGIN}" class="btn btn-primary" />
+						</span>	
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<a href="{U_REGISTER}" class="btn btn-primary btn-labeled "><span class="btn-label"><i class="glyphicon glyphicon glyphicon-user"></i></span>{L_REGISTER}</a>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 <!-- ENDIF -->
 
-<!-- IF S_DISPLAY_ONLINE_LIST and S_HIDE_WHOSONLINE_MOD -->
-	<!-- IF U_VIEWONLINE --><h3><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h3><!-- ELSE --><h3>{L_WHO_IS_ONLINE}</h3><!-- ENDIF -->
-	<p>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /> <br />{LOGGED_IN_USER_LIST}
-	<!-- IF LEGEND --><br /><em>{L_LEGEND}: {LEGEND}</em><!-- ENDIF --></p>
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<!-- IF U_VIEWONLINE -->
+			<h3 class="panel-title"><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h3><!-- ELSE --><h3 class="panel-title">{L_WHO_IS_ONLINE}</h3>
+		<!-- ENDIF -->
+	</div>
+	<div class="panel-body">
+		<p>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /> <br />{LOGGED_IN_USER_LIST}
+		<!-- IF LEGEND --><br /><em>{L_LEGEND}: {LEGEND}</em><!-- ENDIF --></p>
+	</div>
+</div>
 <!-- ENDIF -->
 
 <!-- IF S_DISPLAY_BIRTHDAY_LIST and BIRTHDAY_LIST -->
-	<h3>{L_BIRTHDAYS}</h3>
-	<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">{L_BIRTHDAYS}</h3>
+	</div>
+	<div class="panel-body">
+		<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+	</div>
+</div>
 <!-- ENDIF -->
 
 <!-- IF NEWEST_USER -->
-	<h3>{L_STATISTICS}</h3>
-	<p>{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}<br />{L_BOARD_STARTED_DATE_TXT} {START_DATE}</p>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">{L_STATISTICS}</h3>
+	</div>
+	<div class="panel-body">
+		<p>{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}</p>
+		<hr/>
+		<p class="{S_CONTENT_FLOW_END}<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
+		<!-- IF U_MCP --><p>{CURRENT_TIME} <br />[&nbsp;<a href="{U_MCP}">{L_MCP}</a>&nbsp;]</p><!-- ELSEIF S_USER_LOGGED_IN --><p>{CURRENT_TIME}</p><!-- ENDIF -->
+	</div>
+</div>
 <!-- ENDIF -->
 
-
-<script type="text/javascript" src="{T_LTC_LANG_PATH}/{S_LTC_DAY_FORMAT}"></script>
-<script type="text/javascript" src="{T_LTC_LANG_PATH}/{S_LTC_DATE_FORMAT}"></script>
-<script type="text/javascript" src="{T_LTC_LANG_PATH}/{S_LTC_YEAR_FORMAT}"></script>
-<script type="text/javascript" src="{T_LTC_LANG_PATH}/{S_LTC_CLOCK_FORMAT}"></script>
 <!-- INCLUDE overall_footer.html -->
